@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "814542931024",
+    "project_id": "tech-forum-a6098",
+    "storage_bucket": "tech-forum-a6098.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:814542931024:android:169ca6f6c62123d2963d55",
+        "android_client_info": {
+          "package_name": "com.example.techforum"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "814542931024-9hm5fdmfn6scev6amsnk07mual17olkd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXfqsh7wcTHsmzrlbsh2CJxUN8ywLAv2E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "814542931024-9hm5fdmfn6scev6amsnk07mual17olkd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".OtpActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="30dp">
+
+        <ImageView
+            android:id="@+id/OTP_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:src="@drawable/ic_baseline_arrow_back_24"
+            app:tint="@color/black"
+            android:contentDescription="Back Button" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/poppins_regular"
+            android:includeFontPadding="false"
+            android:text="OTP"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/black"
+            android:textSize="60sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/poppins_semibold"
+            android:includeFontPadding="false"
+            android:text="VERIFICATION"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/black"
+            android:textSize="24sp" />
+
+
+        <TextView
+            android:id="@+id/otp_description_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:fontFamily="@font/poppins_regular"
+            android:includeFontPadding="false"
+            android:text="Enter One Time Password sent to +1234567890"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+
+        <com.chaos.view.PinView
+            android:id="@+id/pin_view"
+            style="@style/PinWidget.PinView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:cursorVisible="true"
+            android:inputType="number"
+            android:itemBackground="#65EAEAEA"
+            app:cursorColor="@color/black"
+            app:hideLineWhenFilled="true"
+            app:itemCount="6"
+            app:itemHeight="50dp"
+            app:itemRadius="5dp"
+            app:itemWidth="50dp"
+            app:lineColor="@color/black"
+            app:lineWidth="1dp" />
+
+        <!--<LinearLayout-->
+        <!--    android:layout_width="wrap_content"-->
+        <!--    android:layout_height="wrap_content"-->
+        <!--    android:orientation="vertical"-->
+        <!--    android:layout_gravity="center">-->
+
+
+        <!--</LinearLayout>-->
+        <Button
+            android:id="@+id/verifyOTP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="#8FA7FD"
+            android:text="Verify OTP"
+            android:textColor="@color/black"
+            android:transitionName="transition_OTP_screen" />
+        <ProgressBar
+            android:layout_width="30dp"
+            android:id="@+id/Otp_progress_bar"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:visibility="visible"
+            android:elevation="8dp"
+            android:indeterminateTint="#233B91" />
+    </LinearLayout>
+
+</ScrollView>

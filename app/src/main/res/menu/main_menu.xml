@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:icon="@drawable/ic_baseline_person_24"
+            android:id="@+id/nav_home"
+            android:title="item1" />
+        <item
+            android:icon="@drawable/ic_baseline_person_24"
+            android:id="@+id/nav_search"
+            android:title="item2" />
+        <item
+            android:icon="@drawable/ic_baseline_person_24"
+            android:id="@+id/nav_all_categories"
+            android:title="Item3" />
+        <item
+            android:icon="@drawable/ic_baseline_person_24"
+            android:id="@+id/nav_add_missing_place"
+            android:title="item4" />
+    </group>
+    <item android:title="Profile">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:icon="@drawable/flag_peru"
+                    android:id="@+id/nav_login"
+                    android:title="login" />
+                <item
+                    android:icon="@drawable/ic_outline_comment_24"
+                    android:id="@+id/nav_profile"
+                    android:title="profile" />
+                <item
+                    android:icon="@drawable/ic_outline_comment_24"
+                    android:id="@+id/nav_logout"
+                    android:title="♦logout" />
+            </group>
+        </menu>
+    </item>
+
+</menu>
