@@ -1,6 +1,8 @@
 package com.example.techforum;
 
-public class userDetails {
+import java.io.Serializable;
+
+public class userDetails{
     String phoneNo,name,email,password,profilePic;
 
     public userDetails() {

@@ -122,6 +122,9 @@ ProgressBar Otp_progress_bar;
                         } else {
 
                             Toast.makeText(OtpActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
+                            Intent intent=new Intent(OtpActivity.this,MainActivity.class);
+                            startActivity(intent);
+                            finish();
                         }
                     }
                 });
@@ -146,7 +149,8 @@ ProgressBar Otp_progress_bar;
     }
 
     private void sendDataToFirebase() {
-        userDetails userDetails=new userDetails(phoneNo,userName,userEmail,userPassword," ");
+        String profilePic="https://firebasestorage.googleapis.com/v0/b/tech-forum-a6098.appspot.com/o/images%2Fdownload.png?alt=media&token=fd672c80-a72b-435e-8cc9-982b6994aca2";
+        userDetails userDetails=new userDetails(phoneNo,userName,userEmail,userPassword,profilePic);
         myref.setValue(userDetails);
         Otp_progress_bar.setVisibility(View.GONE);
         Intent intent=new Intent(OtpActivity.this,Dashboard.class);

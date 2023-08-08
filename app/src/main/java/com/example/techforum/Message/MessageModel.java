@@ -2,7 +2,9 @@ package com.example.techforum.Message;
 
 public class MessageModel {
     public String uid,message;
-    public long time;
+    public String time;
+
+
 
     public String getUid() {
         return uid;
@@ -23,15 +25,15 @@ public class MessageModel {
         this.message = message;
     }
 
-    public long getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(long time) {
+    public void setTime(String time) {
         this.time = time;
     }
 
-    public MessageModel(String uid, String message, long time) {
+    public MessageModel(String uid, String message, String time) {
         this.uid = uid;
         this.message = message;
         this.time = time;

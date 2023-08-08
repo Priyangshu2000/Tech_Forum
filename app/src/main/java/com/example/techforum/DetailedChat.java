@@ -1,13 +1,17 @@
 package com.example.techforum;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.media.Image;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -24,7 +28,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Date;
 
 public class DetailedChat extends AppCompatActivity {
@@ -36,6 +44,7 @@ RecyclerView recyclerView;
 EditText messageBox;
 ImageView send;
 ImageView hide;
+ImageView back;
 FirebaseDatabase database;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +63,7 @@ FirebaseDatabase database;
         Picasso.get().load(profilePic).placeholder(R.drawable.ic_baseline_person_24).into(recieverProfilePic);
         recyclerView=findViewById(R.id.detailedChat_recycler);
         hide=findViewById(R.id.chat_toggle);
+        back=findViewById(R.id.backButton);
 
 
 
@@ -66,19 +76,25 @@ FirebaseDatabase database;
         ArrayList<MessageModel>messageModels=new ArrayList<>();
         MessageAdapter adapter=new MessageAdapter(messageModels,this);
         recyclerView.setAdapter(adapter);
-        LinearLayoutManager layoutManager=new LinearLayoutManager(this);
+        LinearLayoutManager layoutManager=new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,true);
         recyclerView.setLayoutManager(layoutManager);
         database.getReference().child("chats").child(senderRoom).addValueEventListener(new ValueEventListener() {
+            @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                if(messageModels.size()!=0)
+//                    recyclerView.setLayoutManager(new LinearLayoutManager(DetailedChat.this));
+
                 messageModels.clear();
+
                 for(DataSnapshot dataSnapshot:snapshot.getChildren()){
                     MessageModel model=dataSnapshot.getValue(MessageModel.class);
 //                    Toast.makeText(DetailedChat.this,"s", Toast.LENGTH_SHORT).show();
                    messageModels.add(model);
                 }
+                Collections.reverse(messageModels);
                 adapter.notifyDataSetChanged();
-                recyclerView.smoothScrollToPosition(recyclerView.getAdapter().getItemCount());
+//                recyclerView.smoothScrollToPosition(recyclerView.getAdapter().getItemCount());
             }
 
             @Override
@@ -89,10 +105,14 @@ FirebaseDatabase database;
 
 
         send.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
                 String message=messageBox.getText().toString();
-                MessageModel messageModel= new MessageModel(sender_id,message,new Date().getTime());
+                DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm");
+                LocalDateTime now = LocalDateTime.now();
+                String time=dtf.format(now);
+                MessageModel messageModel= new MessageModel(sender_id,message,time);
                 messageBox.setText("");
                 database.getReference().child("chats").child(senderRoom).push().setValue(messageModel).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
@@ -101,7 +121,7 @@ FirebaseDatabase database;
                             database.getReference().child("chats").child(recieverRoom).push().setValue(messageModel).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void unused) {
-
+                                    Log.d("Priyangshu","Successfull");
                                 }
                             });
                         }
@@ -120,6 +140,17 @@ FirebaseDatabase database;
                     recyclerView.setVisibility(View.VISIBLE);
             }
         });
+    }
 
+    @Override
+    protected void onResume() {
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
+
+        super.onResume();
     }
 }

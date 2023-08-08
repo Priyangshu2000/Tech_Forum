@@ -103,7 +103,7 @@ public class CreatepostDialogue extends AppCompatDialogFragment {
                 {
                     postDetails.setCaption(s);
                     postDetails.setTime(Calendar.getInstance().getTime().toString().substring(0,20));
-                    postDetails.setProfilePic(profileimagefromfirebase);
+                    postDetails.setProfilePic("");
                     postDetails.setUserName(username.getText().toString());
                     if(imageuri!=null)
                     uploadImage(imageuri);

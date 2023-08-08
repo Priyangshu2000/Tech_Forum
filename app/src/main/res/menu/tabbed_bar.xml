@@ -3,16 +3,18 @@
     <item
         android:id="@+id/home"
         android:icon="@drawable/ic_baseline_home_24"
-        android:title="Home"
-        />
+        android:title="" />
     <item
         android:id="@+id/chats"
         android:icon="@drawable/ic_baseline_chat_bubble_24"
-        android:title="Chats"
-        />
+        android:title="" />
     <item
         android:id="@+id/news"
         android:icon="@drawable/ic_baseline_newspaper_24"
-        android:title="News"
-        />
+        android:title="" />
 </menu>
+
+
+<!--    android:title="Chats"-->
+<!--    android:title="News"-->
+<!--    android:title="Home"-->

@@ -3,24 +3,26 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-   android:padding="6dp"
-    android:layout_marginBottom="15dp"
-    android:scrollbars="none">
+    android:padding="4dp"
+
+    android:layout_marginBottom="1sp"
+    android:scrollbars="none"
+  >
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal">
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/chat_userpic"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
         android:layout_marginStart="4dp"
         android:layout_gravity="center_vertical"
         android:src="@drawable/ic_baseline_person_24"
-        app:civ_border_color="@color/black"
+        app:civ_border_color="#008080"
+        app:civ_border_width="1dp"
         android:cropToPadding="true"
         android:padding="2dp"
-        app:civ_border_width="1dp"
         android:scaleType="centerCrop"/>
     <LinearLayout
         android:layout_width="match_parent"
@@ -30,17 +32,17 @@
         android:id="@+id/singleChat_linearLayout"
         android:background="?attr/selectableItemBackground"
         android:layout_marginHorizontal="12dp">
+
         <TextView
+            android:id="@+id/chat_username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/chat_username"
-            android:text="Username"
             android:ellipsize="end"
-            android:textSize="20sp"
             android:maxLines="1"
+            android:text="Username"
+            android:fontFamily="serif"
             android:textColor="@color/black"
-            android:fontFamily="@font/poppins_regular"
-            />
+            android:textSize="24sp" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -49,7 +51,7 @@
             android:maxLines="1"
             android:text="open chat to see the messages"
             android:alpha="1"
-            android:textSize="15sp"
+            android:textSize="16sp"
             />
     </LinearLayout>
 </LinearLayout>

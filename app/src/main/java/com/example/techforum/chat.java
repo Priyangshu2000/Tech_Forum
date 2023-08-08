@@ -25,7 +25,8 @@ public class chat extends Fragment {
         View view= inflater.inflate(R.layout.fragment_chat, container, false);
         mbase= FirebaseDatabase.getInstance().getReference().child("userDetails");
         recyclerView = view.findViewById(R.id.chat_recyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
+        LinearLayoutManager layoutManager=new LinearLayoutManager(view.getContext(),LinearLayoutManager.VERTICAL,false);
+        recyclerView.setLayoutManager(layoutManager);
         FirebaseRecyclerOptions<userDetails> options
                 = new FirebaseRecyclerOptions.Builder<userDetails>().setQuery(mbase, userDetails.class).build();
         adapter = new chatAdapter(options);

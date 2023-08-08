@@ -3,6 +3,48 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android Project/AndroidStudioProjects/TechForum/app/src/main/res/drawable/chat_background.xml" value="0.1915" />
+        <entry key="..\:/Android Project/AndroidStudioProjects/TechForum/app/src/main/res/drawable/chatbotmssgbox.xml" value="0.133" />
+        <entry key="..\:/Android Project/AndroidStudioProjects/TechForum/app/src/main/res/drawable/chatbotreceiver.xml" value="0.1915" />
+        <entry key="..\:/Android Project/AndroidStudioProjects/TechForum/app/src/main/res/drawable/chatbotsender.xml" value="0.133" />
+        <entry key="..\:/Android Project/AndroidStudioProjects/TechForum/app/src/main/res/drawable/chatscreen_background.xml" value="0.239" />
+        <entry key="..\:/Android Project/AndroidStudioProjects/TechForum/app/src/main/res/drawable/chatscreen_button_bg.xml" value="0.1915" />
+        <entry key="..\:/Android Project/AndroidStudioProjects/TechForum/app/src/main/res/drawable/comment_bg.xml" value="0.1915" />
+        <entry key="..\:/Android Project/AndroidStudioProjects/TechForum/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.1915" />
+        <entry key="..\:/Android Project/AndroidStudioProjects/TechForum/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.1915" />
+        <entry key="..\:/Android Project/AndroidStudioProjects/TechForum/app/src/main/res/drawable/ic_baseline_arrow_back_ios_24.xml" value="0.1915" />
+        <entry key="..\:/Android Project/AndroidStudioProjects/TechForum/app/src/main/res/drawable/ic_baseline_chat_bubble_24.xml" value="0.1915" />
+        <entry key="..\:/Android Project/AndroidStudioProjects/TechForum/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.1915" />
+        <entry key="..\:/Android Project/AndroidStudioProjects/TechForum/app/src/main/res/drawable/ic_baseline_thumb_up_24.xml" value="0.1915" />
+        <entry key="..\:/Android Project/AndroidStudioProjects/TechForum/app/src/main/res/drawable/ic_outline_comment_24.xml" value="0.1915" />
+        <entry key="..\:/Android Project/AndroidStudioProjects/TechForum/app/src/main/res/drawable/post_border.xml" value="0.1915" />
+        <entry key="..\:/Android Project/AndroidStudioProjects/TechForum/app/src/main/res/drawable/recieve_bg.xml" value="0.133" />
+        <entry key="..\:/Android Project/AndroidStudioProjects/TechForum/app/src/main/res/drawable/send_bg.xml" value="0.1915" />
+        <entry key="..\:/Android Project/AndroidStudioProjects/TechForum/app/src/main/res/drawable/sendbuttonbg.xml" value="0.1915" />
+        <entry key="..\:/Android Project/AndroidStudioProjects/TechForum/app/src/main/res/drawable/tabcolor.xml" value="0.1915" />
+        <entry key="..\:/Android Project/AndroidStudioProjects/TechForum/app/src/main/res/layout/activity_comment.xml" value="0.26875" />
+        <entry key="..\:/Android Project/AndroidStudioProjects/TechForum/app/src/main/res/layout/activity_dashboard.xml" value="0.26875" />
+        <entry key="..\:/Android Project/AndroidStudioProjects/TechForum/app/src/main/res/layout/activity_detailed_chat.xml" value="0.2754782700075322" />
+        <entry key="..\:/Android Project/AndroidStudioProjects/TechForum/app/src/main/res/layout/activity_detailed_news.xml" value="0.26875" />
+        <entry key="..\:/Android Project/AndroidStudioProjects/TechForum/app/src/main/res/layout/activity_main.xml" value="0.26875" />
+        <entry key="..\:/Android Project/AndroidStudioProjects/TechForum/app/src/main/res/layout/activity_main_ui.xml" value="0.26875" />
+        <entry key="..\:/Android Project/AndroidStudioProjects/TechForum/app/src/main/res/layout/activity_otp.xml" value="0.12239583333333333" />
+        <entry key="..\:/Android Project/AndroidStudioProjects/TechForum/app/src/main/res/layout/activity_signup.xml" value="0.26875" />
+        <entry key="..\:/Android Project/AndroidStudioProjects/TechForum/app/src/main/res/layout/activity_view_post_image.xml" value="0.26875" />
+        <entry key="..\:/Android Project/AndroidStudioProjects/TechForum/app/src/main/res/layout/chat_item.xml" value="0.26875" />
+        <entry key="..\:/Android Project/AndroidStudioProjects/TechForum/app/src/main/res/layout/createpostdialogue.xml" value="0.26875" />
+        <entry key="..\:/Android Project/AndroidStudioProjects/TechForum/app/src/main/res/layout/fragment_chat.xml" value="0.26875" />
+        <entry key="..\:/Android Project/AndroidStudioProjects/TechForum/app/src/main/res/layout/fragment_home_fragment.xml" value="0.12239583333333333" />
+        <entry key="..\:/Android Project/AndroidStudioProjects/TechForum/app/src/main/res/layout/fragment_news.xml" value="0.26875" />
+        <entry key="..\:/Android Project/AndroidStudioProjects/TechForum/app/src/main/res/layout/navigation_drawer_header.xml" value="0.26875" />
+        <entry key="..\:/Android Project/AndroidStudioProjects/TechForum/app/src/main/res/layout/recieve_container.xml" value="0.26875" />
+        <entry key="..\:/Android Project/AndroidStudioProjects/TechForum/app/src/main/res/layout/send_message_container.xml" value="0.26875" />
+        <entry key="..\:/Android Project/AndroidStudioProjects/TechForum/app/src/main/res/layout/single_news.xml" value="0.26875" />
+        <entry key="..\:/Android Project/AndroidStudioProjects/TechForum/app/src/main/res/layout/singlechat.xml" value="0.26875" />
+        <entry key="..\:/Android Project/AndroidStudioProjects/TechForum/app/src/main/res/layout/singlecomment.xml" value="0.26875" />
+        <entry key="..\:/Android Project/AndroidStudioProjects/TechForum/app/src/main/res/layout/singlepost.xml" value="0.26875" />
+        <entry key="..\:/Android Project/AndroidStudioProjects/TechForum/app/src/main/res/menu/main_menu.xml" value="0.26875" />
+        <entry key="..\:/Android Project/AndroidStudioProjects/TechForum/app/src/main/res/menu/tabbed_bar.xml" value="0.26875" />
         <entry key="..\:/Users/priya/AndroidStudioProjects/TechForum/app/src/main/res/drawable/bg_gradient.xml" value="0.1635" />
         <entry key="..\:/Users/priya/AndroidStudioProjects/TechForum/app/src/main/res/drawable/chat_background.xml" value="0.1635" />
         <entry key="..\:/Users/priya/AndroidStudioProjects/TechForum/app/src/main/res/drawable/chatscreen_background.xml" value="0.1635" />

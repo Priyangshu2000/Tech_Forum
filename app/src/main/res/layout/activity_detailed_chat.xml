@@ -5,34 +5,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:scrollbars="none"
+        android:background="@color/white"
 
-    android:background="#DC41A8"
     tools:context=".DetailedChat">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:id="@+id/view"
-        android:layout_marginBottom="2dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:background="@drawable/chat_background"
-        app:layout_constraintBottom_toTopOf="@id/send"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+<!--    <View-->
+<!--        android:id="@+id/view"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:background="@drawable/chat_background"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/toolbar" />-->
+
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/detailedChat_recycler"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:background="@color/white"
+        android:clipToPadding="false"
         android:orientation="vertical"
         android:overScrollMode="never"
-        android:clipToPadding="false"
-        android:visibility="visible"
         android:layout_marginBottom="4dp"
-        android:id="@+id/detailedChat_recycler"
-        app:layout_constraintStart_toStartOf="parent"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/chat_box"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
-        app:layout_constraintBottom_toBottomOf="@id/view"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
     <ProgressBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -50,7 +49,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:id="@+id/toolbar"
-        android:background="#250B38"
+        android:background="@color/black"
         android:fitsSystemWindows="true">
     <ImageView
         android:layout_width="30dp"
@@ -63,7 +62,7 @@
         android:src="@drawable/ic_baseline_arrow_back_ios_24"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/white" />
+        app:tint="#20547A" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -73,14 +72,13 @@
             android:id="@+id/chat_userpic"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            app:civ_circle_background_color="#AEACAC"
+            app:civ_circle_background_color="@color/white"
             android:layout_marginStart="4dp"
             android:layout_gravity="center_vertical"
             android:src="@drawable/ic_baseline_person_24"
             app:civ_border_color="@color/white"
             android:cropToPadding="true"
             android:padding="2dp"
-            app:civ_border_width="1dp"
             android:scaleType="centerCrop"/>
         <LinearLayout
             android:layout_width="match_parent"
@@ -96,8 +94,8 @@
                 android:ellipsize="end"
                 android:textSize="20sp"
                 android:maxLines="1"
-                android:textColor="#AEACAC"
-                android:fontFamily="@font/poppins_regular"
+                android:textColor="@color/white"
+                android:fontFamily="@font/poppins_semibold"
                 />
             <TextView
                 android:layout_width="match_parent"
@@ -105,7 +103,7 @@
                 android:id="@+id/chat_message"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:textColor="#AEACAC"
+                android:textColor="@color/white"
                 android:text="online"
                 android:alpha="1"
                 android:textSize="15sp"
@@ -114,26 +112,29 @@
 
         </LinearLayout>
         <ImageView
+            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:layout_marginEnd="2dp"
             android:id="@+id/chat_toggle"
             android:src="@drawable/ic_baseline_power_settings_new_24"
-            app:tint="@color/white" />
+            app:tint="#20547A" />
     </Toolbar>
     <FrameLayout
         android:layout_width="50dp"
         android:layout_height="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginEnd="20dp"
+        android:background="@drawable/chatscreen_background"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="5dp"
         android:id="@+id/send"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:background="@drawable/chatscreen_button_bg">
+        >
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="match_parent"
+
             android:layout_height="match_parent"
             android:id="@+id/chat_sendButton"
             android:layout_marginStart="4dp"
@@ -146,17 +147,16 @@
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="22dp"
-        android:layout_marginLeft="22dp"
-        android:layout_marginRight="14dp"
         android:layout_marginEnd="14dp"
         android:layout_marginBottom="5dp"
+
         android:background="@drawable/chatscreen_background"
         android:hint="Type your message here"
         android:paddingStart="22dp"
         android:id="@+id/chat_box"
         android:paddingEnd="22dp"
-        android:textColor="@color/white"
-        android:textColorHint="#AEACAC"
+        android:textColor="@color/black"
+        android:textColorHint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/send"
         app:layout_constraintStart_toStartOf="parent"

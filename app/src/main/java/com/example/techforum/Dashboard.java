@@ -10,6 +10,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.view.MenuItem;
@@ -18,6 +19,8 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.techforum.CreatePost.CreatepostDialogue;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -26,16 +29,20 @@ import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.squareup.picasso.Picasso;
+
+import java.io.Serializable;
 
 public class Dashboard extends AppCompatActivity {
-BottomNavigationView Navigation;
-FloatingActionButton create_post;
-ImageView menuIcon,signOut;
+    BottomNavigationView Navigation;
+    FloatingActionButton create_post;
+    ImageView profilePic,signOut;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     ConstraintLayout contentView;
     FirebaseAuth mAuth;
     FirebaseUser user;
+    TextView welcome;
     ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,13 +51,19 @@ ImageView menuIcon,signOut;
 //        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         Navigation=findViewById(R.id.bottomNavigationBar);
         create_post=findViewById(R.id.create_post);
-        menuIcon=findViewById(R.id.hamburger_icon);
+        profilePic=findViewById(R.id.profile_image);
         drawerLayout = findViewById(R.id.drawer_layout);
-        navigationView = findViewById(R.id.navigation_view);
+//        navigationView = findViewById(R.id.navigation_view);
         contentView = findViewById(R.id.content);
         signOut=findViewById(R.id.dashboard_signOut);
         mAuth=FirebaseAuth.getInstance();
+        welcome=findViewById(R.id.welcome_user);
         user=mAuth.getCurrentUser();
+        SharedPreferences preferences=getSharedPreferences("username",MODE_PRIVATE);
+        welcome.setText(preferences.getString("name","Hey, user"));
+        String url="https://firebasestorage.googleapis.com/v0/b/tech-forum-a6098.appspot.com/o/images%2Fdownload.png?alt=media&token=fd672c80-a72b-435e-8cc9-982b6994aca2";
+        String picURl=preferences.getString("profilePic",url);
+        Picasso.get().load(picURl).into(profilePic);
 //        progressBar=findViewById(R.id.home_progressbar);
 //        progressBar.setVisibility(View.VISIBLE);
 
@@ -62,14 +75,14 @@ ImageView menuIcon,signOut;
                 openDialgue();
             }
         });
-        menuIcon.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                if(drawerLayout.isDrawerVisible(GravityCompat.START))
-                    drawerLayout.closeDrawer(GravityCompat.START);
-                else drawerLayout.openDrawer(GravityCompat.START);
-            }
-        });
+//        menuIcon.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View view){
+//                if(drawerLayout.isDrawerVisible(GravityCompat.START))
+//                    drawerLayout.closeDrawer(GravityCompat.START);
+//                else drawerLayout.openDrawer(GravityCompat.START);
+//            }
+//        });
 
         Navigation.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
@@ -109,6 +122,18 @@ ImageView menuIcon,signOut;
         });
 
     }
+
+    @Override
+    protected void onDestroy() {
+        SharedPreferences sharedPreferences=getSharedPreferences("com.example.techforum",MODE_PRIVATE);
+        boolean b=sharedPreferences.getBoolean("remember",false);
+        super.onDestroy();
+        if(!b)
+            mAuth.signOut();
+
+
+    }
+
     private void replace(Fragment fragmentPost) {
         FragmentManager fm=getSupportFragmentManager();
         FragmentTransaction ft=fm.beginTransaction().replace(R.id.home_frameLayout,fragmentPost);
@@ -121,4 +146,9 @@ ImageView menuIcon,signOut;
 
     }
 
+    @Override
+    protected void onPause() {
+        onRestart();
+        super.onPause();
+    }
 }

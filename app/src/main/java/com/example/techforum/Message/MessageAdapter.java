@@ -51,10 +51,11 @@ public class MessageAdapter extends RecyclerView.Adapter{
      MessageModel model= messages.get(position);
      if(holder.getClass()==SenderViewHolder.class){
          ((SenderViewHolder) holder).senderMsg.setText(model.getMessage());
-//         ((SenderViewHolder) holder).timestamp.setText(model.getTime());
+         ((SenderViewHolder) holder).timestamp.setText(String.valueOf(model.getTime()));
      }
      else{
          ((RecieverViewHolder) holder).recieverMsg.setText(model.getMessage());
+         ((RecieverViewHolder) holder).timestamp.setText(String.valueOf(model.getTime()));
      }
     }
 

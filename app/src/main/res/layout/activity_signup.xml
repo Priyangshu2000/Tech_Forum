@@ -205,7 +205,7 @@
             android:elevation="5dp"
             android:fontFamily="@font/poppins_semibold"
             android:text="login"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:transitionName="transition_login_btn" />
 
 

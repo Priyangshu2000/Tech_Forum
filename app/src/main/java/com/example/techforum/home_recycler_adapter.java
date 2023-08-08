@@ -2,6 +2,7 @@ package com.example.techforum;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,6 +35,7 @@ Context context;
 int flag;
 String likes;
 String phoneNO;
+String profilePic;
     public home_recycler_adapter(@NonNull FirebaseRecyclerOptions<posts> options) {
         super(options);
         user = FirebaseAuth.getInstance().getCurrentUser();
@@ -154,10 +156,37 @@ String phoneNO;
                 sendDataToDetailPost(holder,holder.getBindingAdapterPosition(),model,v);
             }
         });
+
+
+
+
+
+
+        FirebaseDatabase database=FirebaseDatabase.getInstance();
+        DatabaseReference myRef=database.getReference("userDetails").child(phoneNO);
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                userDetails details=snapshot.getValue(userDetails.class);
+                assert details != null;
+                profilePic=details.getProfilePic();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(context,"Cannot reach server "+error.getMessage(),Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+
+
+
+
         holder.username.setText(model.getUserName());
         holder.caption.setText(model.getCaption());
         holder.time.setText(model.getTime());
-        Picasso.get().load(model.getProfilePic()).placeholder(R.drawable.ic_baseline_person_24).into(holder.profilePic);
+        Picasso.get().load(profilePic).into(holder.profilePic);
         Picasso.get().load(model.getPostImage()).into(holder.postImage);
     }
 
